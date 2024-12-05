@@ -12,10 +12,10 @@ export class MenuScene extends Phaser.Scene {
     }
 
     create() {
-        let playButton = this.add.image(350, 450, 'play').setInteractive().setOrigin(0, 0).setScale(1.2);
-        let soundButton = this.add.image(735, 15, 'sound').setInteractive().setOrigin(0, 0);
+        let playButton = this.add.image(600, 650, 'play').setInteractive().setOrigin(0.5, 0.5).setScale(1.2);
+        let soundButton = this.add.image(1135, 15, 'sound').setInteractive().setOrigin(0, 0);
 
-        let titre = this.add.text(400, 180, 'Urban Chase', { fontSize: '72px', fontFamily: 'urban', color: '#fff', align:"center" }).setOrigin(0.5, 0.5);
+        let titre = this.add.text(600, 250, 'Urban Chase', { fontSize: '72px', fontFamily: 'urban', color: '#fff', align:"center" }).setOrigin(0.5, 0.5);
 
         playButton.on('pointerdown', () => {
             this.scene.start("GameScene");

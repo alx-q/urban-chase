@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MenuScene } from '../../game/scenes/menu';
 import { GameScene } from '../../game/scenes/game';
+import { GameOverScene } from '../../game/scenes/gameover';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -24,7 +26,8 @@ export class HomeComponent {
       },
       scene: [
         MenuScene,
-        GameScene
+        GameScene,
+        GameOverScene
       ]
     };
 

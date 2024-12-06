@@ -8,16 +8,22 @@ export class MenuScene extends Phaser.Scene {
     preload() {
         this.load.image('play', '/assets/buttons/png/Rect-Light-Default/Play.png');
         this.load.image('pause', '/assets/buttons/png/Square-Light-Default/Pause.png');
-        this.load.image('sound', '/assets/buttons/png/Square-Light-Default/Sound-Three.png');
+        this.load.image('bg', '/assets/custom/bg2.png');
     }
 
     create() {
+        this.scene.stop('GameOverScene');
+        this.scene.stop('GameScene');
+
+        const background = this.add.image(0, 0, 'bg').setOrigin(0, 0);
+
         let playButton = this.add.image(600, 650, 'play').setInteractive().setOrigin(0.5, 0.5).setScale(1.2);
-        let soundButton = this.add.image(1135, 15, 'sound').setInteractive().setOrigin(0, 0);
 
         let titre = this.add.text(600, 250, 'Urban Chase', { fontSize: '72px', fontFamily: 'urban', color: '#fff', align:"center" }).setOrigin(0.5, 0.5);
+        let score = this.add.text(600, 350, 'La poursuite ultime', { fontSize: '32px', fontFamily: 'urban', color: '#fff', align:"center" }).setOrigin(0.5, 0.5);
 
         playButton.on('pointerdown', () => {
+            this.scene.stop('MenuScene');
             this.scene.start("GameScene");
         });
         playButton.on('pointerover', () => {
@@ -25,16 +31,6 @@ export class MenuScene extends Phaser.Scene {
         });
         playButton.on('pointerout', () => {
             playButton.clearTint();
-        });
-
-        soundButton.on('pointerdown', () => {
-
-        });
-        soundButton.on('pointerover', () => {
-            soundButton.setTint(0xffd700);
-        });
-        soundButton.on('pointerout', () => {
-            soundButton.clearTint();
         });
     }
 

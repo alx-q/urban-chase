@@ -1,7 +1,11 @@
+import { Constants } from "../constants";
+
 export class Car extends Phaser.Physics.Arcade.Sprite {
     vitesseBase: number;
     constructor(scene: any, x: any, y: any) {
-        super(scene, x, y, 'maxima');
+        let model = Constants.carModels[Phaser.Math.Between(0, Constants.carModels.length - 1)]
+
+        super(scene, x, y, model);
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.setScale(0.32)
